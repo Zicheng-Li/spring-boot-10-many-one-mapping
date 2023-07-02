@@ -32,10 +32,18 @@ public class MODemoApplication {
 //			findInstructorWithCourseJoinFetch(appDAO);
 //			UpdateInstructor(appDAO);
 //			UpdateCourse(appDAO);
-			deleteInstructor(appDAO);
+//			deleteInstructor(appDAO);
+			deleteCourse(appDAO);
 
 
 		};
+	}
+
+	private void deleteCourse(AppDAO appDAO) {
+		int theId=10;
+		System.out.println("deleting course with id: " + theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("done!");
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
