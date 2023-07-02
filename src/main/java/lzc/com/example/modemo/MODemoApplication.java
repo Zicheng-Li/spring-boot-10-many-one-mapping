@@ -30,9 +30,23 @@ public class MODemoApplication {
 //			findInstructorWithCourse(appDAO);
 //			findCourseForInstructor(appDAO);
 //			findInstructorWithCourseJoinFetch(appDAO);
-			UpdateInstructor(appDAO);
+//			UpdateInstructor(appDAO);
+			UpdateCourse(appDAO);
+
 
 		};
+	}
+
+	private void UpdateCourse(AppDAO appDAO) {
+		Course course = appDAO.getCourseById(10);
+        System.out.println("finding the course");
+        System.out.println(course);
+        // update the course
+        course.setTitle("react");
+        // save the course
+        System.out.println("Saving course: " + course);
+        appDAO.updateCourse(course);
+        System.out.println("done!");
 	}
 
 	private void UpdateInstructor(AppDAO appDAO) {
