@@ -28,9 +28,20 @@ public class MODemoApplication {
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourse(appDAO);
 //			findInstructorWithCourse(appDAO);
-			findCourseForInstructor(appDAO);
+//			findCourseForInstructor(appDAO);
+			findInstructorWithCourseJoinFetch(appDAO);
 
 		};
+	}
+
+	private void findInstructorWithCourseJoinFetch(AppDAO appDAO) {
+		Instructor instructor = appDAO.findInstructorByIdJoinFetch(1);
+        System.out.println("finding the instructor");
+        System.out.println(instructor);
+
+        // find courses for the instructor
+        System.out.println("finding the course with the id" + instructor.getCourses());
+        System.out.println("done!");
 	}
 
 	private void findCourseForInstructor(AppDAO appDAO) {
