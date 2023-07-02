@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class MODemoApplication {
 
@@ -25,9 +27,22 @@ public class MODemoApplication {
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourse(appDAO);
-			findInstructorWithCourse(appDAO);
+//			findInstructorWithCourse(appDAO);
+			findCourseForInstructor(appDAO);
 
 		};
+	}
+
+	private void findCourseForInstructor(AppDAO appDAO) {
+		Instructor instructor = appDAO.findById(1);
+		System.out.println("finding the instructor");
+		System.out.println(instructor);
+
+		// find courses for the instructor
+		System.out.println("finding the course with the id");
+		List<Course> courses = appDAO.findCoursesByInstructorId(1);
+		System.out.println(courses);
+        System.out.println("done!");
 	}
 
 	private void findInstructorWithCourse(AppDAO appDAO) {
